@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Audio-visual Multi-layer Feature Fusion Convolution Network</title>
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <style type="text/css">
+    main {
+    padding-bottom: 50px;
+    }
+    header a:link {
+    color: #EEEEEE;    
+    }
+    header a:hover {
+    color: #EEEEEE;
+    }
+    header a:visited {
+    color: #EEEEEE;
+    }
+    header a:active {
+    color: #EEEEEE;
+    }
+    footer {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #333333;
+    color: #BBBBBB;
+    }
+    table {
+    width: 100%;
+    table-layout: fixed;
+    }
+    th {
+    text-align: center;
+    vertical-align: middle;
+    }
+    td {
+    text-align: center;
+    vertical-align: middle;
+    }
+    th#strong{
+    color: #FF33CC;
+    }
+    #pinkstrong{
+    color: #FF33CC;
+    }
+    audio {
+    width: 100%;
+    }
+    .jumbotroncolor {
+    background-color: #333333;
+    color: #EEEEEE;
+    }
+    .thumbnailsize {
+    width: 200px;
+    }
+    .thumbnailshadow {
+    filter: drop-shadow(5px 5px 5px #aaa);
+    }
+    @media screen and (max-width:767px) {
+    h1 { font-size:20pt;}
+    }
+    @media screen and (min-width:768px){
+    h1 { font-size:30pt;}
+    }
+  </style>
+
+  <body>
+
+    <header class="header" id="top">
+      <div class="jumbotron jumbotroncolor text-center">
+	<div class="container">
+	  <h2><p style="text-align:center">MFFCN: Multi-layer Feature Fusion Convolution Network for Audio-visual Speech Enhancement</p></h2>
+	  
+	  <p class="lead">
+		<p style="text-align:center">
+	    <a>Xinmeng Xu</a>&nbsp;&nbsp;&nbsp;
+	    <a>Dongxiang Xu</a>&nbsp;&nbsp;&nbsp;
+		<a>Jie Jia</a>&nbsp;&nbsp;&nbsp;
+		<a>Yang Wang</a>&nbsp;&nbsp;&nbsp;
+		<a>Binbin Chen</a>&nbsp;&nbsp;&nbsp;
+		</p>
+		<p style="text-align:center">
+		Trinity College Dublin, Ireland<br>
+		The First Department of AI, vivo, P.R. China
+		</p>
+	  </p>
+	  <p class="lead">
+	    <p style="text-align:center">Submitted to ICAIBD 2021</p><br>
+	  </p>
+	</div>
+      </div>
+    </header>
+
+    <main>            
+      <div class="container">
+	<hr>
+	
+	<div class="row" id="introduction">
+	  <div class="col-md-12">
+	    <h2>Audio-visual Multi-layer Feature Fusion Convolution Network</h2>
+	    <p>
+			Speech enhancement can potentially benefit from the visual information from the target speaker,
+			such as lip movement and facial expressions, because the visual aspect of speech is essentially
+			unaffected by acoustic environment. In order to fuse acoustic and visual information, an audio-visual
+			fusion strategy is proposed, which goes beyond simple feature concatenation and learns to automatically 
+			align the two modalities, leading to enhanced representations which increase the degree of intelligibility  
+			in noisy conditions. The proposed model fuse audio-visual features layer by layer, and feed these audio-visual
+			features to each corresponding decoding layer.
+	    </p>
+
+	    <figure class="figure">				
+		<center>
+		  <a name="fig1"><img src="image/zzz.png" class="figure-img" width="80%" alt="network"></a>	
+		</center>
+	      </figure>
+	  </div>
+	</div>
+
+	<hr>
+	
+	<div class="row" id="results">
+	  <div class="col-md-12">
+	    <h3>Dataset</h3>
+	    <ul>
+		  <li>We used <a href="http://sigmedia.tcd.ie/TCDTIMIT">the TCD-TIMIT dataset</a> and <a href="http://spandh.dcs.shef.ac.uk/avlombard/"> GRID Corpus dataset</a>.</li> 
+		
+
+
+	    </ul>
+	    
+	    
+	    <hr>
+		<h4><a name="exp1">Experiment Results</a></h4>
+	    
+	    <p class="lead"> Natural noise (MALE)</p>
+	    <div>
+	      <table class="table">
+		<thead>
+		  <tr>
+		    <th></th>
+		    <th>Noisy</th>
+		    <th>Enhanced-baseline</th>
+			<th>Enhanced-MFFCN</th>
+		  </tr>
+		</thead>
+		<tbody>
+		  <tr>
+		    <th scope="row">Sample</th>
+		    <td>
+		      <video controls>
+			<source src="video/mixture-m.mp4" type="video/mp4" />
+		      </video>
+		    </td>
+		    <td>
+		      <video controls>
+			<source src="video/enhanced_basline.mp4" type="video/mp4" />
+		      </video>
+		    </td>
+		    <td>
+		      <video controls>
+			<source src="video/enhanced_trinity.mp4" type="video/mp4" />
+		      </video>
+		    </td>
+		  </tr>
+		</tbody>
+	      </table>
+	    </div>
+
+	    <p class="lead">Natural Noise (Female)</p>
+	    <div>
+	      <table class="table">
+		<thead>
+		  <tr>
+		    <th></th>
+		    <th>Noisy</th>
+		    <th>Enhanced</th>
+		  </tr>
+		</thead>
+		<tbody>
+		  <tr>
+		    <th scope="row">Sample</th>
+		    <td>
+		      <video controls>
+			<source src="video/mixture_f.mp4" type="video/mp4" />
+		      </video>
+		    </td>
+		    <td>
+		      <video controls>
+			<source src="video/enhanced_t.mp4" type="video/mp4" />
+		      </video>
+		    </td>
+<		   </tr>
+	
+		</tbody>
+	      </table>
+	    </div>
+
+	    <p class="lead">Speech Noise (Male)</p>
+	    <div>
+	      <table class="table">
+		<thead>
+		  <tr>
+		    <th></th>
+		    <th>Mixture</th>
+		    <th>Enhanced</th>
+		  </tr>
+		</thead>
+		<tbody>
+		  <tr>
+		    <th scope="row">Sample</th>
+		    <td>
+		      <video controls>
+			<source src="video/mixture_speak_m.mp4" type="video/mp4" />
+		      </video>
+		    </td>
+		    <td>
+		      <video controls>
+			<source src="video/speakenhance_m.mp4" type="video/mp4" />
+		      </video>
+		    </td>
+		  </tr>
+		</tbody>
+	      </table>
+	    </div>
+
+		 
+	    <p class="lead">Speech Noise (Female)</p>
+	   <div>
+	      <table class="table">
+		<thead>
+		  <tr>
+		    <th></th>
+		    <th>Mixture</th>
+		    <th>Enhanced</th>
+		  </tr>
+		</thead>
+		<tbody>
+		  <tr>
+		    <th scope="row">Sample</th>
+		    <td>
+		      <video controls>
+			<source src="video/mixture_speak.mp4" type="video/mp4" />
+		      </video>
+		    </td>
+		    <td>
+		      <video controls>
+			<source src="video/speakenhance.mp4" type="video/mp4" />
+		      </video>
+		    </td>
+		  </tr>
+		</tbody>
+	      </table>
+	    </div>
+		<hr>
+	  </div>
+	</div>
+	<hr>
+	
+	
+
+
+	<hr>
+	<strong>NOTE:</strong>
+	<ul>
+		<li>If you want to cite this paper, try this:
+			Xinmeng Xu, Dongxiang Xu, Jie Jia, Yang Wang, Binbin Chen, "MFFCN: Multi-layer Feature Fusion Convolution Network for Audio-visual Speech Enhancement" (Submitted to ICAIBD 2021)</li>
+	</ul>
+      </div>
+    </main>
+    <script src="../../js/bootstrap.min.js"></script>
+  </body>
+</html>
