@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>VSEGAN: Visual Speech Enhancement Generative Adversarial Network</title>
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <style type="text/css">
+    main {
+    padding-bottom: 50px;
+    }
+    header a:link {
+    color: #EEEEEE;    
+    }
+    header a:hover {
+    color: #EEEEEE;
+    }
+    header a:visited {
+    color: #EEEEEE;
+    }
+    header a:active {
+    color: #EEEEEE;
+    }
+    footer {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #333333;
+    color: #BBBBBB;
+    }
+    table {
+    width: 100%;
+    table-layout: fixed;
+    }
+    th {
+    text-align: center;
+    vertical-align: middle;
+    }
+    td {
+    text-align: center;
+    vertical-align: middle;
+    }
+    th#strong{
+    color: #FF33CC;
+    }
+    #pinkstrong{
+    color: #FF33CC;
+    }
+    audio {
+    width: 100%;
+    }
+    .jumbotroncolor {
+    background-color: #333333;
+    color: #EEEEEE;
+    }
+    .thumbnailsize {
+    width: 200px;
+    }
+    .thumbnailshadow {
+    filter: drop-shadow(5px 5px 5px #aaa);
+    }
+    @media screen and (max-width:767px) {
+    h1 { font-size:20pt;}
+    }
+    @media screen and (min-width:768px){
+    h1 { font-size:30pt;}
+    }
+  </style>
+
+  <body>
+
+    <header class="header" id="top">
+      <div class="jumbotron jumbotroncolor text-center">
+	<div class="container">
+	  <h2><p style="text-align:center">VSEGAN: Visual Speech Enhancement Generative Adversarial Network</p></h2>
+	  
+	  <p class="lead">
+		<p style="text-align:center">
+	    <a>Xinmeng Xu</a>&nbsp;&nbsp;&nbsp;
+		<a>Yang Wang</a>&nbsp;&nbsp;&nbsp;
+	    <a>Dongxiang Xu</a>&nbsp;&nbsp;&nbsp;
+		<a>Cong Zhang</a>&nbsp;&nbsp;&nbsp;
+		<a>Yiyuan Peng</a>&nbsp;&nbsp;&nbsp;
+		<a>Jie Jia</a>&nbsp;&nbsp;&nbsp;
+		<a>Binbin Chen</a>&nbsp;&nbsp;&nbsp;
+		</p>
+		<p style="text-align:center">
+		Trinity College Dublin, Ireland<br>
+		vivo AI Lab, P.R. China
+		</p>
+	  </p>
+	  <p class="lead">
+	    <p style="text-align:center">Submitted to Interspeech 2021</p><br>
+	  </p>
+	</div>
+      </div>
+    </header>
+
+    <main>            
+      <div class="container">
+	<hr>
+	
+	<div class="row" id="introduction">
+	  <div class="col-md-12">
+	    <h2>VSEGAN: Visual Speech Enhancement Generative Adversarial Network</h2>
+	    <p>
+			Speech enhancement is an essential task of improving speech quality in noise scenario.
+			Several state-of-the-art approacheshave introduced visual information for speech
+			enhancement, since the visual aspect of speech is essentially unaffected by acoustic environment.
+			This paper proposes a novel frameworkthat involves visual information for speech enhancement, by
+			in-corporating a Generative Adversarial Network (GAN). In par-ticular, the proposed visual speech enhancement
+			GAN consistof two networks trained in adversarial manner, i) a generator that adopts multi-layer feature
+			fusion convolution network to enhance input noisy speech, and ii) a discriminator that attempts to minimize
+			the discrepancy between the distributions of the clean speech signal and enhanced speech signal. Experiment
+			results demonstrated superior performance of the proposed modelagainst several state-of-the-art models.
+	    </p>
+
+	    <figure class="figure">				
+		<center>
+		  <a name="fig1"><img src="image2/gen.png" class="figure-img" width="60%" alt="Generator"></a>	
+		  <a name="fig1"><img src="image2/dis.png" class="figure-img" width="60%" alt="Discriminator"></a>	
+		</center>
+	      </figure>
+	  </div>
+	</div>
+
+	<hr>
+	
+	<div class="row" id="results">
+	  <div class="col-md-12">
+	    <h3>Dataset</h3>
+	    <ul>
+		  <li>We used <a href="http://sigmedia.tcd.ie/TCDTIMIT">the TCD-TIMIT dataset</a> and <a href="http://spandh.dcs.shef.ac.uk/avlombard/"> GRID Corpus dataset</a>.</li> 
+		
+
+
+	    </ul>
+	    
+	    
+	    <hr>
+		<h4><a name="exp1">Experiment Results</a></h4>
+	    
+	    <p class="lead"> Male speech + ambient noise</p>
+	    <div>
+	      <table class="table">
+		<thead>
+		  <tr>
+		    <th></th>
+		    <th>Noisy</th>
+		    <th><a href="https://XinmengXu.github.io/AVSE/MultilayerFFCN">Enhanced-MFFCN</a></th>
+			<th><a href="https://XinmengXu.github.io/AVSE/AMFFCN">Enhanced-AMFFCN</a></th>
+			<th>Enhanced-VSEGAN</th>
+		  </tr>
+		</thead>
+		<tbody>
+		  <tr>
+		    <th scope="row">Sample</th>
+		    <td>
+		      <video controls>
+			<source src="video2/mixturef7.mp4" type="video/mp4" />
+		      </video>
+		    </td>
+		    <td>
+		      <video controls>
+			<source src="video2/enhancedf7-m.mp4" type="video/mp4" />
+		      </video>
+		    </td>
+		    <td>
+		      <video controls>
+			<source src="video2/enhancedf7-a.mp4" type="video/mp4" />
+		      </video>
+		    </td>
+			 </td>
+		    <td>
+		      <video controls>
+			<source src="video2/enhancedf7-v.mp4" type="video/mp4" />
+		      </video>
+		    </td>
+		  </tr>
+		</tbody>
+	      </table>
+	    </div>
+
+	    <p class="lead"> Female speech + ambient noise</p>
+	    <div>
+	      <table class="table">
+		<thead>
+		  <tr>
+		    <th></th>
+		    <th>Noisy</th>
+		    <th><a href="https://XinmengXu.github.io/AVSE/MultilayerFFCN">Enhanced-MFFCN</a></th>
+			<th><a href="https://XinmengXu.github.io/AVSE/AMFFCN">Enhanced-AMFFCN</a></th>
+			<th>Enhanced-VSEGAN</th>
+		  </tr>
+		</thead>
+		<tbody>
+		  <tr>
+		    <th scope="row">Sample</th>
+		    <td>
+		      <video controls>
+			<source src="video2/mixturef6.mp4" type="video/mp4" />
+		      </video>
+		    </td>
+		    <td>
+		      <video controls>
+			<source src="video2/enhancedf6-m.mp4" type="video/mp4" />
+		      </video>
+		    </td>
+		    <td>
+		      <video controls>
+			<source src="video2/enhancedf6-a.mp4" type="video/mp4" />
+		      </video>
+		    </td>
+			 <td>
+		      <video controls>
+			<source src="video2/enhancedf6-v.mp4" type="video/mp4" />
+		      </video>
+		    </td>
+		  </tr>
+		</tbody>
+	      </table>
+	    </div>
+
+	    <p class="lead">Female speech + unknown talker speech</p>
+	    <div>
+	      <table class="table">
+		<thead>
+		  <tr>
+		    <th></th>
+		    <th>Mixture</th>
+		    <th><a href="https://XinmengXu.github.io/AVSE/MultilayerFFCN">Enhanced-MFFCN</a></th>
+			<th><a href="https://XinmengXu.github.io/AVSE/AMFFCN">Enhanced-AMFFCN</a></th>
+			<th>Enhanced-VSEGAN</th>
+		  </tr>
+		</thead>
+		<tbody>
+		  <tr>
+		    <th scope="row">Sample</th>
+		    <td>
+		      <video controls>
+			<source src="video2/mixture1.mp4" type="video/mp4" />
+		      </video>
+		    </td>
+			<td>
+		      <video controls>
+			<source src="video2/enhanced1-m.mp4" type="video/mp4" />
+		      </video>
+		    </td>
+		    <td>
+		      <video controls>
+			<source src="video2/enhanced1-a.mp4" type="video/mp4" />
+		      </video>
+		    </td>
+			<td>
+		      <video controls>
+			<source src="video2/enhanced1-v.mp4" type="video/mp4" />
+		      </video>
+		    </td>
+		  </tr>
+		</tbody>
+	      </table>
+	    </div>
+
+		 
+	    <p class="lead">Male speech + unknown talker speech</p>
+	   <div>
+	      <table class="table">
+		<thead>
+		  <tr>
+		    <th></th>
+		    <th>Mixture</th>
+			<th><a href="https://XinmengXu.github.io/AVSE/MultilayerFFCN">Enhanced-MFFCN</a></th>
+		    <th><a href="https://XinmengXu.github.io/AVSE/AMFFCN">Enhanced-AMFFCN</a></th>
+			<th>Enhanced-VSEGAN</th>
+		  </tr>
+		</thead>
+		<tbody>
+		  <tr>
+		    <th scope="row">Sample</th>
+		    <td>
+		      <video controls>
+			<source src="video2/mixturem7.mp4" type="video/mp4" />
+		      </video>
+		    </td>
+			<td>
+		      <video controls>
+			<source src="video2/enhancedm7-m.mp4" type="video/mp4" />
+		      </video>
+		    </td>
+		    <td>
+		      <video controls>
+			<source src="video2/enhancedm7-a.mp4" type="video/mp4" />
+		      </video>
+		    </td>
+			<td>
+		      <video controls>
+			<source src="video2/enhancedm7-v.mp4" type="video/mp4" />
+		      </video>
+		    </td>
+		  </tr>
+		</tbody>
+	      </table>
+	    </div>
+		<hr>
+	  </div>
+	</div>
+	<hr>
+	
+	
+
+
+	<hr>
+	<strong>NOTE:</strong>
+	<ul>
+		<li>If you want to cite this paper, try this:
+			Xinmeng Xu, Yang Wang, Dongxiang Xu, Cong Zhang, Yiyuan Peng, Jie Jia, Binbin Chen, "VSEGAN: Visual Speech Enhancement Generative Adversarial Network"</li>
+	</ul>
+      </div>
+    </main>
+    <script src="../../js/bootstrap.min.js"></script>
+  </body>
+</html>
