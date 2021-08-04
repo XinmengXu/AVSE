@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Monaural speech enhancement with multi-head self and cross attention in the time domain</title>
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <style type="text/css">
+    main {
+    padding-bottom: 50px;
+    }
+    header a:link {
+    color: #EEEEEE;    
+    }
+    header a:hover {
+    color: #EEEEEE;
+    }
+    header a:visited {
+    color: #EEEEEE;
+    }
+    header a:active {
+    color: #EEEEEE;
+    }
+    footer {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #333333;
+    color: #BBBBBB;
+    }
+    table {
+    width: 100%;
+    table-layout: fixed;
+    }
+    th {
+    text-align: center;
+    vertical-align: middle;
+    }
+    td {
+    text-align: center;
+    vertical-align: middle;
+    }
+    th#strong{
+    color: #FF33CC;
+    }
+    #pinkstrong{
+    color: #FF33CC;
+    }
+    audio {
+    width: 100%;
+    }
+    .jumbotroncolor {
+    background-color: #333333;
+    color: #EEEEEE;
+    }
+    .thumbnailsize {
+    width: 200px;
+    }
+    .thumbnailshadow {
+    filter: drop-shadow(5px 5px 5px #aaa);
+    }
+    @media screen and (max-width:767px) {
+    h1 { font-size:20pt;}
+    }
+    @media screen and (min-width:768px){
+    h1 { font-size:30pt;}
+    }
+  </style>
+
+  <body>
+
+    <header class="header" id="top">
+      <div class="jumbotron jumbotroncolor text-center">
+	<div class="container">
+	  <h2><p style="text-align:center">Monaural speech enhancement with multi-head self and cross attention in the time domain</p></h2>
+	  
+	  <p class="lead">
+		<p style="text-align:center">
+	    <a>Xinmeng Xu</a>&nbsp;&nbsp;&nbsp;
+	    <a>Dongxiang Xu</a>&nbsp;&nbsp;&nbsp;
+		<a>Yuexian Zou</a>&nbsp;&nbsp;&nbsp;
+		</p>
+		<p style="text-align:center">
+		ADSPLAB, School of ECE, Peking University, Shenzhen, P.R. China<br>
+		vivo AI Lab, Hangzhou, P.R. China
+		</p>
+	  </p>
+	  <p class="lead">
+	    <p style="text-align:center">Submitted to ICASSP 2022</p><br>
+	  </p>
+	</div>
+      </div>
+    </header>
+
+    <main>            
+      <div class="container">
+	<hr>
+	
+	<div class="row" id="introduction">
+	  <div class="col-md-12">
+	    <h2>Monaural speech enhancement with multi-head self and cross attention in the time domain</h2>
+	    <p>
+			Accurate modeling of the long-term correlation of noisy speech is crucial to the performance 
+			of a speech enhancement system. This paper proposed a novel speech enhancement network, which 
+			combines a U-Net architecture with multi-head self- and cross-attention, for end-to-end speech
+			enhancement in time domain. The proposed method overcomes the inability of U-Net to model 
+			long-term correlations and dependencies, which are crucial for accurate noisy speech modeling. 
+			For this purpose, multi-head attention mechanisms are incorporated at two levels: 1) a multi
+			-head self-attention module leverages global interactions between encoder features, while 
+			2) multi-head cross-attention in the skip connections allows a fines recovery in the decoder
+			by filtering out uncorrelated feature. Experimental results illustrate that the proposed 
+			architecture obtains consistently better performance than recent models of both PESQ and STOI 
+			scores.
+	    </p>
+
+	    <figure class="figure">				
+		<center>
+		  <a name="fig1"><img src="image/model.png" class="figure-img" width="60%" alt="Model"></a>	
+		  <a name="fig2"><img src="image/MHSA.png" class="figure-img" width="40%" alt="MHSA"></a>
+		  <a name="fig3"><img src="image/MHCA.png" class="figure-img" width="40%" alt="MHCA"></a>
+		</center>
+	      </figure>
+	  </div>
+	</div>
+
+	<hr>
+	
+	<div class="row" id="results">
+	  <div class="col-md-12">
+	    <h3>Dataset</h3>
+	    <ul>
+		  <li>We used the LibriSpeech dataset</a> and DEMAND dataset</a>.</li> 
+		
+
+
+	    </ul>
+	    
+	    
+	    <hr>
+		<h4><a name="exp1">Experiment Results</a></h4>
+	    
+	    
+
+	    <p class="lead"> English</p>
+	    <div>
+	      <table class="table">
+		<thead>
+		  <tr>
+		    <th></th>
+		    <th>Source-English</th>
+			<th>Enhanced-English</th>
+		  </tr>
+		</thead>
+		<tbody>
+		  <tr>
+		    <th scope="row">Sample1</th>
+		    <td>
+		      <video controls>
+			<source src="video/source2.mp4" type="video/mp4" width="10%"/>
+		      </video>
+		    </td>
+		    <td>
+		      <video controls>
+			<source src="video/clean2.mp4" type="video/mp4" width="10%"/>
+		      </video>
+		    </td>
+		  </tr>
+		</tbody>
+	      </table>
+	    </div>
+
+	    <p class="lead">Chinese</p>
+	    <div>
+	      <table class="table">
+		<thead>
+		  <tr>
+		    <th></th>
+		    <th>Source-Chinese</th>
+			<th>Enhanced-Chinese</th>
+		  </tr>
+		</thead>
+		<tbody>
+		  <tr>
+		    <th scope="row">Sample2</th>
+		    <td>
+		      <video controls>
+			<source src="video/source-C.mp4" type="video/mp4" width="10%"/>
+		      </video>
+		    </td>
+			<td>
+		      <video controls>
+			<source src="video/clean-C.mp4" type="video/mp4" width="10%"/>
+		      </video>
+		    </td>
+		  </tr>
+		</tbody>
+	      </table>
+	    </div>
+
+		<p class="lead"> Japanese</p>
+	    <div>
+	      <table class="table">
+		<thead>
+		  <tr>
+		    <th></th>
+		    <th>Source-Japanese</th>
+			<th>Enhanced-Japanese</th>
+		  </tr>
+		</thead>
+		<tbody>
+		  <tr>
+		    <th scope="row">Sample3</th>
+		    <td>
+		      <video controls>
+			<source src="video/source-J.mp4" type="video/mp4" width="10%"/>
+		      </video>
+		    </td>
+		    <td>
+		      <video controls>
+			<source src="video/clean-J.mp4" type="video/mp4" width="10%"/>
+		      </video>
+		    </td>
+		  </tr>
+		</tbody>
+	      </table>
+	    </div>
+	
+
+
+	<hr>
+	<strong>NOTE:</strong>
+	<ul>
+		<li>If you want to cite this paper, try this:
+			Xinmeng Xu, Dongxiang Xu, Yuexian Zou, "Monaural speech enhancement with multi-head self and cross attention in the time domain"</li>
+	</ul>
+      </div>
+    </main>
+    <script src="../../js/bootstrap.min.js"></script>
+  </body>
+</html>
