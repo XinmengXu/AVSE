@@ -73,25 +73,21 @@
     <header class="header" id="top">
       <div class="jumbotron jumbotroncolor text-center">
 	<div class="container">
-	  <h2><p style="text-align:center">AMFFCN: Attentional Multi-layer Feature Fusion Convolution Network for Audio-visual Speech Enhancement</p></h2>
+	  <h2><p style="text-align:center">Soft-threshold Attention based Audio-visual Speech Enhancement Network</p></h2>
 	  
 	  <p class="lead">
 		<p style="text-align:center">
 	    <a>Xinmeng Xu</a>&nbsp;&nbsp;&nbsp;
-		<a>Yang Wang</a>&nbsp;&nbsp;&nbsp;
-	    <a>Dongxiang Xu</a>&nbsp;&nbsp;&nbsp;
-		<a>Cong Zhang</a>&nbsp;&nbsp;&nbsp;
-		<a>Yiyuan Peng</a>&nbsp;&nbsp;&nbsp;
-		<a>Jie Jia</a>&nbsp;&nbsp;&nbsp;
-		<a>Binbin Chen</a>&nbsp;&nbsp;&nbsp;
+		<a>Dejun Li</a>&nbsp;&nbsp;&nbsp;
+	    <a>Jianjun Hao</a>&nbsp;&nbsp;&nbsp;
 		</p>
 		<p style="text-align:center">
 		Trinity College Dublin, Ireland<br>
-		vivo AI Lab, P.R. China
+		Hubei University of Chinese Medcine, P.R. China
 		</p>
 	  </p>
 	  <p class="lead">
-	    <p style="text-align:center">Submitted to Interspeech 2021</p><br>
+	    <p style="text-align:center">Submitted to ICASSP 2022</p><br>
 	  </p>
 	</div>
       </div>
@@ -103,16 +99,17 @@
 	
 	<div class="row" id="introduction">
 	  <div class="col-md-12">
-	    <h2>Attentional Multi-layer Feature Fusion Convolution Network</h2>
+	    <h2>Soft-threshold Attention based Audio-visual Speech Enhancement Network</h2>
 	    <p>
-			Audio-visual speech enhancement system is thought to be one of promising solutions for isolating and enhancing speech of 
-			desired speaker. Conventional methods focus on predicting clean speech spectrum via a naive convolution neural network 
-			based encoder-decoder architecture, and these methods a) fail to use data fully and effectively, b) cannot process features 
-			selectively. The proposed model addresses these drawbacks, a) by applying a model that fuses audio and visual features layer 
-			by layer in encoding phase, and that feeds fused audio-visual features to each corresponding decoder layer, and more importantly, 
-			b) by introducing soft threshold attention inside the model to select the informative modality softly. This paper proposes attentional
-			audio-visual multi-layer feature fusion model, in which soft-threshold attention unit are applied on feature mapping at every layer 
-			of decoder part. The proposed model demonstrates the superior performance of the network against the state-of-the-art approaches.
+		    Audio-visual speech enhancement system is regarded to beone of promising solutions for isolating and enhancing speech 
+		    of desired speaker. Conventional methods focus on predictingclean speech spectrum via a naive convolution neural network based
+		    encoder-decoder architecture, and these methods a) arenot adequate to use data fully and effectively, b) cannot pro-cess features
+		    selectively.  To tackle these problems, this pa-per proposes a soft-threshold attention based convolution re-current network for
+		    audio-visual speech enhancement, whicha) apply a novel audio-visual fusion strategy that fuses audioand visual features layer by 
+		    layer in encoding stage, and thatfeeds fused audio-visual features to each corresponding de-coder layer, and more importantly, b)
+		    which introduces a soft-threshold attention applied on every decoder layers to selectthe informative modality softly.   
+		    Experimental results illus-trate that the proposed architecture obtains consistently bet-ter performance than recent models
+		    of both PESQ and STOIscores.
 	    </p>
 
 	    <figure class="figure">				
@@ -146,8 +143,8 @@
 		  <tr>
 		    <th></th>
 		    <th>Noisy</th>
-		    <th><a href="https://XinmengXu.github.io/AVSE/MultilayerFFCN">Enhanced-MFFCN</a></th>
-			<th>Enhanced-AMFFCN</th>
+		    <th>Enhanced-AVCRN</a></th>
+			<th>Enhanced-AVCRN + STA</th>
 		  </tr>
 		</thead>
 		<tbody>
@@ -180,8 +177,8 @@
 		  <tr>
 		    <th></th>
 		    <th>Noisy</th>
-		    <th><a href="https://XinmengXu.github.io/AVSE/MultilayerFFCN">Enhanced-MFFCN</a></th>
-			<th>Enhanced-AMFFCN</th>
+		    <th>Enhanced-AVCRN</a></th>
+			<th>Enhanced-AVCRN + STA</th>
 		  </tr>
 		</thead>
 		<tbody>
@@ -214,8 +211,8 @@
 		  <tr>
 		    <th></th>
 		    <th>Mixture</th>
-		    <th><a href="https://XinmengXu.github.io/AVSE/MultilayerFFCN">Enhanced-MFFCN</a></th>
-			<th>Enhanced-AMFFCN</th>
+		    <th>Enhanced-AVCRN</a></th>
+			<th>Enhanced-AVCRN+STA</th>
 		  </tr>
 		</thead>
 		<tbody>
@@ -249,8 +246,8 @@
 		  <tr>
 		    <th></th>
 		    <th>Mixture</th>
-			<th><a href="https://XinmengXu.github.io/AVSE/MultilayerFFCN">Enhanced-MFFCN</a></th>
-		    <th>Enhanced-AMFFCN</th>
+			<th>Enhanced-AVCRN</a></th>
+		    <th>Enhanced-AVCRN + STA</th>
 		  </tr>
 		</thead>
 		<tbody>
@@ -287,7 +284,7 @@
 	<strong>NOTE:</strong>
 	<ul>
 		<li>If you want to cite this paper, try this:
-			Xinmeng Xu, Yang Wang, Dongxiang Xu, Cong Zhang, Yiyuan Peng, Jie Jia, Binbin Chen, "AMFFCN: Attentional Multi-layer Feature Fusion Convolution Network for Audio-visual Speech Enhancement"</li>
+			Xinmeng Xu, Dejun Li, Jianjun Hao,  "Soft-threshold Attention based Audio-visual Speech Enhancement Network"</li>
 	</ul>
       </div>
     </main>
