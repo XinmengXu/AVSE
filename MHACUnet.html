@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>IMPROVING MONAURAL SPEECH ENHANCEMENT IN THE TIME DOMAIN WITHMULTI-HEAD SELF AND CROSS ATTENTION</title>
+    <title>U-Former: Improving Monaural Speech Enhancement with Multi-head Self and Cross Attention</title>
     <link href="../../css/bootstrap.min.css" rel="stylesheet">
   </head>
   <style type="text/css">
@@ -73,7 +73,7 @@
     <header class="header" id="top">
       <div class="jumbotron jumbotroncolor text-center">
 	<div class="container">
-	  <h2><p style="text-align:center">IMPROVING MONAURAL SPEECH ENHANCEMENT IN THE TIME DOMAIN WITHMULTI-HEAD SELF AND CROSS ATTENTION</p></h2>
+	  <h2><p style="text-align:center">U-Former: Improving Monaural Speech Enhancement with Multi-head Self and Cross Attention</p></h2>
 	  
 	  <p class="lead">
 		<p style="text-align:center">
@@ -85,7 +85,7 @@
 		</p>
 	  </p>
 	  <p class="lead">
-	    <p style="text-align:center">Submitted to ICASSP 2022</p><br>
+	    <p style="text-align:center">Submitted to ICPR 2022</p><br>
 	  </p>
 	</div>
       </div>
@@ -97,20 +97,20 @@
 	
 	<div class="row" id="introduction">
 	  <div class="col-md-12">
-	    <h2>Monaural speech enhancement with multi-head self and cross attention in the time domain</h2>
+	    <h2>U-Former: Improving Monaural Speech Enhancement with Multi-head Self and Cross Attention</h2>
 	    <p>
-			Accurate modeling of the long-term correlation of noisy speech is crucial to the performance 
-			of a speech enhancement system. Motivated by long-term leverage capability achievedin  the  
-		        transformer, This paper proposed a novel speech enhancement network, which combines a U-Net 
-		        architecture with multi-head self- and cross-attention, for end-to-end speech
-			enhancement in time domain. The proposed method overcomes the inability of U-Net to model 
-			long-term correlations and dependencies, which are crucial for accurate noisy speech modeling. 
-			For this purpose, multi-head attention mechanisms are incorporated at two levels: 1) a multi
-			-head self-attention module leverages global interactions between encoder features, while 
-			2) multi-head cross-attention in the skip connections allows a fines recovery in the decoder
-			by filtering out uncorrelated feature. Experimental results illustrate that the proposed 
-			architecture obtains consistently better performance than recent models of both PESQ and STOI 
-			scores.
+			For supervised speech enhancement, contextual information is important for accurate spectral mapping. 
+		        However, commonly used deep neural networks (DNNs) are limited in capturing temporal contexts. To 
+		        leverage long-term contexts for tracking a target speaker, this paper treats the speech enhancement 
+		        as sequence-to-sequence mapping, and propose a novel monaural speech enhancement U-net structure based
+		        on Transformer, dubbed U-Former. The key idea is to model long-term correlations and dependencies, which 
+		        are crucial for accurate noisy speech modeling, through the multi-head attention mechanisms. For this 
+		        purpose, U-Former incorporates multi-head attention mechanisms at two levels: 1) a multi-head self-attention 
+		        module which calculate the attention map along both time- and frequency-axis to generate time and frequency 
+		        sub-attention maps for leveraging global interactions between encoder features, while 2) multi-head 
+		        cross-attention module which are inserted in the skip connections allows a fine recovery in the decoder by 
+		        filtering out uncorrelated features. Experimental results illustrate that the U-Former obtains consistently 
+		        better performance than recent models of PESQ, STOI, and SSNR scores.
 	    </p>
 
 	    <figure class="figure">				
