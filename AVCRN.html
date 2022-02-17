@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Attentional Multi-layer Feature Fusion Convolution Network for Audio-visual Speech Enhancement</title>
+    <title>Improving Visual Speech Enhancement Network by Learning Audio-visual Affinity with Multi-head Attention</title>
     <link href="../../css/bootstrap.min.css" rel="stylesheet">
   </head>
   <style type="text/css">
@@ -73,21 +73,24 @@
     <header class="header" id="top">
       <div class="jumbotron jumbotroncolor text-center">
 	<div class="container">
-	  <h2><p style="text-align:center">Soft-threshold Attention based Audio-visual Speech Enhancement Network</p></h2>
+	  <h2><p style="text-align:center">Improving Visual Speech Enhancement Network by Learning Audio-visual Affinity with Multi-head Attention</p></h2>
 	  
 	  <p class="lead">
 		<p style="text-align:center">
 	    <a>Xinmeng Xu</a>&nbsp;&nbsp;&nbsp;
+		<a>Yang Wang</a>&nbsp;&nbsp;&nbsp;\
+		<a>Jie Jia</a>&nbsp;&nbsp;&nbsp;
+		<a>Binbin Chen</a>&nbsp;&nbsp;&nbsp;
 		<a>Dejun Li</a>&nbsp;&nbsp;&nbsp;
-	    <a>Jianjun Hao</a>&nbsp;&nbsp;&nbsp;
 		</p>
 		<p style="text-align:center">
 		Trinity College Dublin, Ireland<br>
-		Hubei University of Chinese Medcine, P.R. China
+	        vivo AI Lab, China<br>
+		HBUCM, P.R. China
 		</p>
 	  </p>
 	  <p class="lead">
-	    <p style="text-align:center">Submitted to ICASSP 2022</p><br>
+	    <p style="text-align:center">Submitted to Interspeech 2022</p><br>
 	  </p>
 	</div>
       </div>
@@ -99,17 +102,18 @@
 	
 	<div class="row" id="introduction">
 	  <div class="col-md-12">
-	    <h2>Soft-threshold Attention based Audio-visual Speech Enhancement Network</h2>
+	    <h2>Improving Visual Speech Enhancement Network by Learning Audio-visual Affinity with Multi-head Attention</h2>
 	    <p>
-		    Audio-visual speech enhancement system is regarded to beone of promising solutions for isolating and enhancing speech 
-		    of desired speaker. Conventional methods focus on predictingclean speech spectrum via a naive convolution neural network based
-		    encoder-decoder architecture, and these methods a) arenot adequate to use data fully and effectively, b) cannot pro-cess features
-		    selectively.  To tackle these problems, this pa-per proposes a soft-threshold attention based convolution re-current network for
-		    audio-visual speech enhancement, whicha) apply a novel audio-visual fusion strategy that fuses audioand visual features layer by 
-		    layer in encoding stage, and thatfeeds fused audio-visual features to each corresponding de-coder layer, and more importantly, b)
-		    which introduces a soft-threshold attention applied on every decoder layers to selectthe informative modality softly.   
-		    Experimental results illus-trate that the proposed architecture obtains consistently bet-ter performance than recent models
-		    of both PESQ and STOIscores.
+		    Audio-visual speech enhancement system is regarded to be one of promising solutions for isolating and enhancing 
+		    speech of desired speaker. Conventional methods focus on predicting clean speech spectrum via a naive convolution 
+		    neural network based encoder-decoder architecture, and these methods a) are not adequate to use data fully, b) are 
+		    unable to effectively balance audio-visual features. The proposed model addresses these drawbacks, by a) applying a 
+		    model that fuses audio and visual features layer by layer in encoding phase, and that feeds fused audio-visual features 
+		    to each corresponding decoder layer, and more importantly, b) introducing a 2-stage multi-head cross attention (MHCA) 
+		    mechanism to infer audio-visual speech enhancement for balancing the fused audio-visual features and eliminating irrelevant 
+		    features. This paper proposes attentional audio-visual multi-layer feature fusion model, in which MHCA units are applied 
+		    on feature mapping at every layer of decoder. The proposed model demonstrates the superior performance of the network 
+		    against the state-of-the-art models.
 	    </p>
 
 	    <figure class="figure">				
@@ -145,7 +149,7 @@
 		    <th></th>
 		    <th>Noisy</th>
 		    <th>Enhanced-AVCRN</a></th>
-			<th>Enhanced-AVCRN + STA</th>
+			<th>Enhanced-MHCA-AVCRN</th>
 		  </tr>
 		</thead>
 		<tbody>
@@ -179,7 +183,7 @@
 		    <th></th>
 		    <th>Noisy</th>
 		    <th>Enhanced-AVCRN</a></th>
-			<th>Enhanced-AVCRN + STA</th>
+			<th>Enhanced-MHCA-AVCRN</th>
 		  </tr>
 		</thead>
 		<tbody>
@@ -213,7 +217,7 @@
 		    <th></th>
 		    <th>Mixture</th>
 		    <th>Enhanced-AVCRN</a></th>
-			<th>Enhanced-AVCRN+STA</th>
+			<th>Enhanced-MHCA-AVCRN</th>
 		  </tr>
 		</thead>
 		<tbody>
@@ -248,7 +252,7 @@
 		    <th></th>
 		    <th>Mixture</th>
 			<th>Enhanced-AVCRN</a></th>
-		    <th>Enhanced-AVCRN + STA</th>
+		    <th>Enhanced-MHCA-AVCRN</th>
 		  </tr>
 		</thead>
 		<tbody>
@@ -285,7 +289,7 @@
 	<strong>NOTE:</strong>
 	<ul>
 		<li>If you want to cite this paper, try this:
-			Xinmeng Xu, Dejun Li, Jianjun Hao,  "Soft-threshold Attention based Audio-visual Speech Enhancement Network"</li>
+			Xinmeng Xu, Yang Wang, Jie Jia, Binbin Chen, Dejun Li  "Improving Visual Speech Enhancement Network by Learning Audio-visual Affinity with Multi-head Attention"</li>
 	</ul>
       </div>
     </main>
