@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Adaptive Selection of Local and Non-local Attention Mechanisms for Speech Enhancement</title>
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <style type="text/css">
+    main {
+    padding-bottom: 50px;
+    }
+    header a:link {
+    color: #EEEEEE;    
+    }
+    header a:hover {
+    color: #EEEEEE;
+    }
+    header a:visited {
+    color: #EEEEEE;
+    }
+    header a:active {
+    color: #EEEEEE;
+    }
+    footer {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #333333;
+    color: #BBBBBB;
+    }
+    table {
+    width: 100%;
+    table-layout: fixed;
+    }
+    th {
+    text-align: center;
+    vertical-align: middle;
+    }
+    td {
+    text-align: center;
+    vertical-align: middle;
+    }
+    th#strong{
+    color: #FF33CC;
+    }
+    #pinkstrong{
+    color: #FF33CC;
+    }
+    audio {
+    width: 100%;
+    }
+    .jumbotroncolor {
+    background-color: #333333;
+    color: #EEEEEE;
+    }
+    .thumbnailsize {
+    width: 200px;
+    }
+    .thumbnailshadow {
+    filter: drop-shadow(5px 5px 5px #aaa);
+    }
+    @media screen and (max-width:767px) {
+    h1 { font-size:20pt;}
+    }
+    @media screen and (min-width:768px){
+    h1 { font-size:30pt;}
+    }
+  </style>
+
+  <body>
+
+    <header class="header" id="top">
+      <div class="jumbotron jumbotroncolor text-center">
+	<div class="container">
+	  <h2><p style="text-align:center">Adaptive Selection of Local and Non-local Attention Mechanisms for Speech Enhancement</p></h2>
+	  
+	  <p class="lead">
+		<p style="text-align:center">
+	    <a>Anonymous Author(s),</a>&nbsp;&nbsp;&nbsp;
+
+		</p>
+		<p style="text-align:center">
+		Affiliation 1<br>
+		Affiliation 2
+		</p>
+	  </p>
+	  <p class="lead">
+	    <p style="text-align:center">Submitted to NeurIPS 2022</p><br>
+	  </p>
+	</div>
+      </div>
+    </header>
+
+    <main>            
+      <div class="container">
+	<hr>
+	
+	<div class="row" id="introduction">
+	  <div class="col-md-12">
+	    <h2>Adaptive Selection of Local and Non-local Attention Mechanisms for Speech Enhancement</h2>
+	    <p>
+			 Local and non-local attention-based methods have been well studied in various speech enhancement
+			 tasks while leading to promising performance. However, natural auditory scenes are essentially 
+			 dynamic and contain many fast-changing, focusing on one type of attention mechanism (local or 
+			 non-local) is unable to precisely capture more discriminative information for estimating target
+			 speech. To address this issue, we introduce an adaptive selection network to dynamically select
+			 an appropriate route that determines whether to use the attention mechanisms and which attention
+			 mechanism to use for speech enhancement. We train the adaptive selection network using reinforcement
+			 learning with a developed difficulty-regulated reward that is related to the performance, complexity,
+			 and difficulty of predicting a target speech from the noisy mixtures. Consequently, we propose an 
+			 Attention Selection Speech Enhancement Network, dubbed ASSENet, which is composed of an adaptive 
+			 selection network and a local and non-local attention based speech enhancement network. The ASSENet
+			 incorporates both local and non-local attention and develops the attention mechanism selection
+			 technique to explore the appropriate route of local and non-local attention mechanisms for speech
+			 enhancement tasks. The results show that our method achieves comparable and superior performance on
+			 both STOI and PESQ scores for the VoiceBank-DEMAND dataset and real-world settings. 
+	    </p>
+
+	    <figure class="figure">				
+		<center>
+		  <a name="fig1"><img src="image/ASSENet.png" class="figure-img" width="80%" alt="Figure 1: Framework Overview.
+ "></a>	
+		  <a name="fig2"><img src="image/LA.png" class="figure-img" width="40%" alt="Figure 2: Local Attention.
+"></a>	
+		  <a name="fig3"><img src="image/NA.png" class="figure-img" width="40%" alt="Figure 3: Non-local Attention.
+"></a>	
+		</center>
+	      </figure>
+	  </div>
+	</div>
+
+	<hr>
+	
+	<div class="row" id="results">
+	  <div class="col-md-12">
+	    <h3>The demo of ASSENet</h3>
+		<strong>Task and dataset </strong>
+	    <ul>
+		  <li>We evaluated the proposed ASSENet on <strong>Single-channel Speech Enhancement</strong> task.</li>
+          <li>For evaluation on simulated data: we use VoiceBank-DEMAND dataset to train the ASSENet. We randomly 
+		  select 12 male speakers and 12 female speakers from totally 84 speakers (42 male and 42 female), and each
+		  speaker pronounced around 400 sentences. Finally, the clean data contained 9600 utterances in total (4800
+		  male utterances and 4800 female utterances). Next, we mix 9600 utterances with noise in -5, -4, -3, -2, -1, 
+		  0, 5 dB SNR levels.</li>
+          <li>For evaluation on real-world data: we use AVSpeech + AudioSet to train the ASSENet. The clean speech 
+		  dataset AVSpeech is collected from YouTube, containing 4700 hours of video segments with approximately 
+		  150,000 distinct speakers spanning a wide variety of people and languages. The noisy speech is a mixture 
+		  of the above clean speech segments with AudioSet that contains a total more than 1.7 million 10-second 
+		  segments of 526 kinds of noise.</li>		  
+		
+
+
+	    </ul>
+	    
+	    
+	    <hr>
+		<h4><a name="exp1">Demos on Simulated data</a></h4>
+		<ul>
+		  <li><strong>Mixture</strong> is the noisy speech sample.</li>
+		  <li><strong>ASSENet-w\o ASN</strong> is the enhanced speech sample, which processed by ASSENet without adaptive selection network.</li>
+		  <li><strong>ASSENet</strong> is the enhanced speech sample, which processed by ASSENet.</li>
+		  <li><strong>Clean</strong> is the clean speech sample.</li>
+		</ul>
+	    
+	    <p class="lead">Speech enhancement samples.</p>
+	    <div>
+	      <table class="table" align="right" width="1100">
+		<thead>
+		  <tr>
+		    <th></th>
+		    <th>Mixture</th>
+			<th>ASSENet-w\o ASN</th>
+			<th>ASSENet</th>
+			<th>Clean</th>
+		  </tr>
+		</thead>
+		<tbody>
+		  <tr>
+		    <th scope="row">Sample 1</th>
+		    <td>
+		      <audio controls>
+			<source src="video/n1.wav" type="audio/wav"/>
+		      </audio>
+		    </td>
+		    <td>
+		      <audio controls>
+			<source src="video/eaw1.wav" type="audio/wav"/>
+		      </audio>
+		    </td>
+			<td>
+		      <audio controls>
+			<source src="video/ea1.wav" type="audio/wav"/>
+		      </audio>
+		    </td>
+			<td>
+		      <audio controls>
+			<source src="video/c1.wav" type="audio/wav"/>
+		      </audio>
+		    </td>
+		  </tr>
+		  <tr>
+		    <th scope="row">Sample 2</th>
+		    <td>
+		      <audio controls>
+			<source src="video/n2.wav" type="audio/wav"/>
+		      </audio>
+		    </td>
+		    <td>
+		      <audio controls>
+			<source src="video/eaw2.wav" type="audio/wav"/>
+		      </audio>
+		    </td>
+			<td>
+		      <audio controls>
+			<source src="video/ea2.wav" type="audio/wav"/>
+		      </audio>
+		    </td>
+			<td>
+		      <audio controls>
+			<source src="video/c2.wav" type="audio/wav"/>
+		      </audio>
+		    </td>
+		  </tr>
+		  <tr>
+		    <th scope="row">Sample 3</th>
+		    <td>
+		      <audio controls>
+			<source src="video/n3.wav" type="audio/wav"/>
+		      </audio>
+		    </td>
+		    <td>
+		      <audio controls>
+			<source src="video/eaw3.wav" type="audio/wav"/>
+		      </audio>
+		    </td>
+			<td>
+		      <audio controls>
+			<source src="video/ea3.wav" type="audio/wav"/>
+		      </audio>
+		    </td>
+			<td>
+		      <audio controls>
+			<source src="video/c3.wav" type="audio/wav"/>
+		      </audio>
+		    </td>
+		  </tr>
+		  
+		  <tr>
+		    <th scope="row">Sample 4</th>
+		    <td>
+		      <audio controls>
+			<source src="video/n4.wav" type="audio/wav"/>
+		      </audio>
+		    </td>
+		    <td>
+		      <audio controls>
+			<source src="video/eaw4.wav" type="audio/wav"/>
+		      </audio>
+		    </td>
+			<td>
+		      <audio controls>
+			<source src="video/ea4.wav" type="audio/wav"/>
+		      </audio>
+		    </td>
+			<td>
+		      <audio controls>
+			<source src="video/c4.wav" type="audio/wav"/>
+		      </audio>
+		    </td>
+		  </tr>
+		  
+		   <tr>
+		    <th scope="row">Sample 5</th>
+		    <td>
+		      <audio controls>
+			<source src="video/n5.wav" type="audio/wav"/>
+		      </audio>
+		    </td>
+		    <td>
+		      <audio controls>
+			<source src="video/eaw5.wav" type="audio/wav"/>
+		      </audio>
+		    </td>
+			<td>
+		      <audio controls>
+			<source src="video/ea5.wav" type="audio/wav"/>
+		      </audio>
+		    </td>
+			<td>
+		      <audio controls>
+			<source src="video/c5.wav" type="audio/wav"/>
+		      </audio>
+		    </td>
+		  </tr>
+		  
+		  <tr>
+		    <th scope="row">Sample 6</th>
+		    <td>
+		      <audio controls>
+			<source src="video/n6.wav" type="audio/wav"/>
+		      </audio>
+		    </td>
+		    <td>
+		      <audio controls>
+			<source src="video/eaw6.wav" type="audio/wav"/>
+		      </audio>
+		    </td>
+			<td>
+		      <audio controls>
+			<source src="video/ea6.wav" type="audio/wav"/>
+		      </audio>
+		    </td>
+			<td>
+		      <audio controls>
+			<source src="video/c6.wav" type="audio/wav"/>
+		      </audio>
+		    </td>
+		  </tr>
+		  
+		  <tr>
+		    <th scope="row">Sample 7</th>
+		    <td>
+		      <audio controls>
+			<source src="video/n7.wav" type="audio/wav"/>
+		      </audio>
+		    </td>
+		    <td>
+		      <audio controls>
+			<source src="video/eaw7.wav" type="audio/wav"/>
+		      </audio>
+		    </td>
+			<td>
+		      <audio controls>
+			<source src="video/ea7.wav" type="audio/wav"/>
+		      </audio>
+		    </td>
+			<td>
+		      <audio controls>
+			<source src="video/c7.wav" type="audio/wav"/>
+		      </audio>
+		    </td>
+		  </tr>
+		  
+		   <tr>
+		    <th scope="row">Sample 8</th>
+		    <td>
+		      <audio controls>
+			<source src="video/n8.wav" type="audio/wav"/>
+		      </audio>
+		    </td>
+		    <td>
+		      <audio controls>
+			<source src="video/eaw8.wav" type="audio/wav"/>
+		      </audio>
+		    </td>
+			<td>
+		      <audio controls>
+			<source src="video/ea8.wav" type="audio/wav"/>
+		      </audio>
+		    </td>
+			<td>
+		      <audio controls>
+			<source src="video/c8.wav" type="audio/wav"/>
+		      </audio>
+		    </td>
+		  </tr>
+		  
+		  <tr>
+		    <th scope="row">Sample 9</th>
+		    <td>
+		      <audio controls>
+			<source src="video/n9.wav" type="audio/wav"/>
+		      </audio>
+		    </td>
+		    <td>
+		      <audio controls>
+			<source src="video/eaw9.wav" type="audio/wav"/>
+		      </audio>
+		    </td>
+			<td>
+		      <audio controls>
+			<source src="video/ea9.wav" type="audio/wav"/>
+		      </audio>
+		    </td>
+			<td>
+		      <audio controls>
+			<source src="video/c9.wav" type="audio/wav"/>
+		      </audio>
+		    </td>
+		  </tr>
+		  
+		  <tr>
+		    <th scope="row">Sample 10</th>
+		    <td>
+		      <audio controls>
+			<source src="video/n10.wav" type="audio/wav"/>
+		      </audio>
+		    </td>
+		    <td>
+		      <audio controls>
+			<source src="video/eaw10.wav" type="audio/wav"/>
+		      </audio>
+		    </td>
+			<td>
+		      <audio controls>
+			<source src="video/ea10.wav" type="audio/wav"/>
+		      </audio>
+		    </td>
+			<td>
+		      <audio controls>
+			<source src="video/c10.wav" type="audio/wav"/>
+		      </audio>
+		    </td>
+		  </tr>
+		  
+		</tbody>
+	      </table>
+		</div>  
+		<hr>
+	    <h4><a name="exp2"><strong>Demos on Real-world data</strong></a></h4>	 
+
+	   <div>
+	      <table class="table" align="right">
+	    <thead>
+		  <tr>
+		    <th></th>
+		    <th>Original</th>
+			<th>ASSENet Enhanced</th>
+		  </tr>
+		</thead>
+		<tbody>
+		
+		  <tr>
+		  <th scope="row">Sample 1 (Babble)</th>
+			<td width="1.5%">
+		      <video width="440" height="360" controls="controls">
+			<source src="video/sample1-mixture.mp4" type="video/mp4">
+		      </video>
+		    </td>
+			<td width="1.5%">
+		      <video width="440" height="360" controls="controls">
+			<source src="video/sample1-enhanced.mp4" type="video/mp4">
+		      </video>
+		    </td>
+		  </tr>
+		  
+		  <tr>
+		  <th scope="row">Sample 2 (Cafeteria)</th>
+			<td width="1.5%">
+		      <video width="440" height="360" controls="controls">
+			<source src="video/sample2-mixture.mp4" type="video/mp4">
+		      </video>
+		    </td>
+			<td>
+		      <video width="440" height="360" controls="controls">
+			<source src="video/sample2-enhanced.mp4" type="video/mp4">
+		      </video>
+		    </td>
+		  </tr width="1.5%">
+		  
+		  <tr>
+		  <th scope="row">Sample 3 (Public Street)</th>
+			<td>
+		      <video width="440" height="360" controls="controls">
+			<source src="video/sample3-mixture.mp4" type="video/mp4">
+		      </video>
+		    </td>
+			<td>
+		      <video width="440" height="360" controls="controls">
+			<source src="video/sample3-enhanced.mp4" type="video/mp4">
+		      </video>
+		    </td>
+		  </tr>
+		  
+		</tbody>
+	      </table>
+	    </div>
+	  </div>
+	</div>
+	
+	
+
+
+	<hr>
+	<strong>NOTE:</strong>
+	<ul>
+		<li>"Adaptive Selection of Local and Non-local Attention Mechanisms for Speech Enhancement", submitted to NeurIPS 2022</li>
+		<li>The code will be released in the near future</li>
+	</ul>
+      </div>
+    </main>
+    <script src="../../js/bootstrap.min.js"></script>
+  </body>
+</html>
